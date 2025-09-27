@@ -240,37 +240,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &695642491
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 695642492}
-  m_Layer: 0
-  m_Name: Obstacle_Generator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &695642492
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695642491}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1946531099
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,13 +427,118 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7289580577300670179, guid: cb3c175465773964fbae4fa8cca357cf, type: 3}
       propertyPath: m_Name
-      value: background
+      value: Background
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb3c175465773964fbae4fa8cca357cf, type: 3}
+--- !u!1001 &4179335691470681021
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3382255372420859898, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: HousePrefab1
+      value: 
+      objectReference: {fileID: 224832657043827021, guid: 80cced97cb1aeb74dac6d2f71786c08d, type: 3}
+    - target: {fileID: 3382255372420859898, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: HousePrefab2
+      value: 
+      objectReference: {fileID: 4503388827195076343, guid: 801d7e6ed91066a4a8139db417cb7f4e, type: 3}
+    - target: {fileID: 3382255372420859898, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: HousePrefab3
+      value: 
+      objectReference: {fileID: 6037304853113807457, guid: 9c9e3857d79e95d42adcb828c7ccd5dc, type: 3}
+    - target: {fileID: 3382255372420859898, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: HousePrefab4
+      value: 
+      objectReference: {fileID: 1640420543490583514, guid: b8058da161695ed478bdef5b3764c80a, type: 3}
+    - target: {fileID: 3382255372420859898, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: HousePrefab5
+      value: 
+      objectReference: {fileID: 2200274459992993314, guid: 0ba79dfcf6c0eff49a9256a00709f924, type: 3}
+    - target: {fileID: 3382255372420859898, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: HousePrefab6
+      value: 
+      objectReference: {fileID: 7432300400145598134, guid: ce3eeec5990a0ef449a4e26d6aa0038e, type: 3}
+    - target: {fileID: 3382255372420859898, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: HousePrefab7
+      value: 
+      objectReference: {fileID: 7009517414280579059, guid: 5d7bc486976d6e543aea439635937617, type: 3}
+    - target: {fileID: 3382255372420859898, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: HousePrefab8
+      value: 
+      objectReference: {fileID: 5479635356469219794, guid: d2dc1ee790ad16c4281e3a14d764d1ab, type: 3}
+    - target: {fileID: 3382255372420859898, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: HousePrefab9
+      value: 
+      objectReference: {fileID: 1509493238134384930, guid: 684d74d485ce07d459311789f1f71a9a, type: 3}
+    - target: {fileID: 3382255372420859898, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: HousePrefab10
+      value: 
+      objectReference: {fileID: 6016746332235792199, guid: 8f3b5f3d221641144a6cede76a1f7bf4, type: 3}
+    - target: {fileID: 3382255372420859898, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: HousePrefab11
+      value: 
+      objectReference: {fileID: 4473037510554027809, guid: 8634b62e4e46b4f4ebf145541203e1a5, type: 3}
+    - target: {fileID: 3382255372420859898, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: HousePrefab12
+      value: 
+      objectReference: {fileID: 9087343699219369470, guid: 6efd02c52ccc2434f9b776ad8e8ee56c, type: 3}
+    - target: {fileID: 5402596468858665665, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: m_Name
+      value: Obstacle_Generator
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754219404634017251, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754219404634017251, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754219404634017251, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -198.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754219404634017251, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754219404634017251, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754219404634017251, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754219404634017251, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754219404634017251, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754219404634017251, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754219404634017251, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
 --- !u!1001 &6487439259367040555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -590,6 +664,6 @@ SceneRoots:
   - {fileID: 1946531102}
   - {fileID: 76577063}
   - {fileID: 8606293990971854358}
-  - {fileID: 695642492}
+  - {fileID: 4179335691470681021}
   - {fileID: 6487439259367040555}
   - {fileID: 2898051834963874609}
