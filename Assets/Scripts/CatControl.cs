@@ -12,7 +12,8 @@ public class CatControl : MonoBehaviour
     List<Collider> TriggerList = new List<Collider>();
     //ad to extend
     public TextMeshProUGUI ScoreTMP;
-    private int _score;
+    public int Score;
+    public float CurrentSpeed = 0.5f;
 
     [SerializeField]
     private GameObject CatBody;
@@ -47,7 +48,9 @@ public class CatControl : MonoBehaviour
     private readonly float lerpDuration = 1f;
 
     private bool _isCatJumping = false;
-    public float hangTime = 0.2f;
+    public float hangTime = 2f;
+
+    private bool prepareForChange = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -58,7 +61,7 @@ public class CatControl : MonoBehaviour
         CatHead.transform.SetParent(ParentForHead.transform);
 
         _horizontalStretch = CatBody.transform.localScale.x;
-        _score = 0;
+        Score = 0;
     }
 
     // Update is called once per frame
@@ -106,7 +109,23 @@ public class CatControl : MonoBehaviour
             JumpingCat();
         }
 
-        ScoreTMP.text = _score.ToString();
+        ScoreTMP.text = Score.ToString();
+
+        //if (Score == 0)
+        //{
+        //    hangTime = 2f;
+        //}
+
+        //Debug.Log(CurrentSpeed);
+
+        CurrentSpeed = 0.05f + (0.01f*Score);
+        GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+        foreach (GameObject obstacle in obstacles)
+        {
+            obstacle.gameObject.GetComponent<ObstacleMove>().Speed = CurrentSpeed;
+        }
+
+        hangTime = 2f - (0.01f * Score);
     }
 
     private void JumpingCat()
@@ -226,14 +245,14 @@ public class CatControl : MonoBehaviour
 
         if (other.gameObject.tag == "Fish")
         {
-            _score++;
+            Score++;
             GameObject.Destroy(other.gameObject);
         }
 
         if (other.gameObject.tag == "Obstacle")
         {
             Debug.Log("game over!");
-            _score = 0;
+            Score = 0;
         }
     }
 }
