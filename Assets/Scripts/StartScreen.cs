@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StartScreen : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class StartScreen : MonoBehaviour
     [SerializeField]
     private Button startButton;
 
-    private bool _wasStartButtonClicked = false;
+    public bool _wasStartButtonClicked = false;
+    
 
     public Image CinemaBackground;
 
@@ -27,13 +29,19 @@ public class StartScreen : MonoBehaviour
 
     public GameObject StarGameFolder;
 
-    public bool _didStartMenuClosed = false;
-    public bool _didAnimaticEnd = false;
-    
+    //public bool _didStartMenuClosed = false; // end of startscreen
+    public bool _didAnimaticEnd = false; //end of animatic
+
+    public AudioManager AudioManager;
+
 
     private void Awake()
     {
         startButton.onClick.AddListener(OnStartButtonClicked);
+
+        //RestartButton.onClick.AddListener(OnRestartButtonClicked);
+
+        //BackToMenuButton.onClick.AddListener(OnBackToMenuButtonClicked);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,18 +52,39 @@ public class StartScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_wasStartButtonClicked)
+        AudioManager.SceneIndex = 2;
+
+        if (_wasStartButtonClicked)
         {
             Debug.Log("button clicked!");
-            _didStartMenuClosed = true;
+
+            StarGameFolder.SetActive(false);
             StartCoroutine(Animatic());
         }
+
+        if(_didAnimaticEnd == true)
+        {
+            SceneManager.LoadScene(3);
+            RestartMenu();
+        }
+
+        
+
     }
+
+    private void RestartMenu()
+    {
+        _didAnimaticEnd = false;
+        StarGameFolder.gameObject.SetActive(true);
+    }
+
 
     private void OnStartButtonClicked()
     {
         _wasStartButtonClicked = true;
     }
+
+    
 
     IEnumerator Animatic()
     {
@@ -77,10 +106,13 @@ public class StartScreen : MonoBehaviour
         Story4.gameObject.SetActive(true);
         yield return new WaitForSeconds(2);
 
+        
         animaticfolder.gameObject.SetActive(false);
         _didAnimaticEnd = true;
-    }
 
+        
+
+    }
 
 
 }

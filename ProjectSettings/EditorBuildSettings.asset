@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/GameOverScreen.unity
+    guid: bd2b8409f1be3114f8278b4bb0ca656a
+  - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: e8964b603e487824eae4fad407837c97
+  - enabled: 1
+    path: Assets/Scenes/Helena.unity
+    guid: ec3cb2495f2a5e143bfc954f4546a847
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

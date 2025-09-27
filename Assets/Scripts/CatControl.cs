@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CatControl : MonoBehaviour
 {
@@ -52,6 +53,10 @@ public class CatControl : MonoBehaviour
 
     private bool prepareForChange = false;
 
+    public bool isGameOver = false;
+
+    public bool wasFishCollected = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -67,6 +72,16 @@ public class CatControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            isGameOver = true;
+        }
+
+
+        if(isGameOver == true) { return; }
+
+
         //jump destinations
 
         //original Y0 Pos
@@ -248,11 +263,14 @@ public class CatControl : MonoBehaviour
             Score++;
             GameObject.Destroy(other.gameObject);
         }
+        wasFishCollected = false;
 
         if (other.gameObject.tag == "Obstacle")
         {
             Debug.Log("game over!");
             Score = 0;
+            isGameOver = true;
+            SceneManager.LoadScene(1);
         }
     }
 }
