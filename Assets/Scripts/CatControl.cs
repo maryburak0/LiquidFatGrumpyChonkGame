@@ -1,14 +1,18 @@
 using NUnit;
 using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CatControl : MonoBehaviour
 {
-
+    List<Collider> TriggerList = new List<Collider>();
     //ad to extend
+    public TextMeshProUGUI ScoreTMP;
+    private int _score;
 
     [SerializeField]
     private GameObject CatBody;
@@ -17,61 +21,44 @@ public class CatControl : MonoBehaviour
     [SerializeField]
     private GameObject CatWhole;
 
-    private float _wholeCatYPos;
-
     [SerializeField]
     private GameObject PosForHead;
     [SerializeField]
     private GameObject ParentForHead;
 
-    public float _stretchRate = 100f;
+    private readonly float _stretchRate = 100f;
     private float _verticalStretch;
-
-    private float _headPos;
-    public float _YPos = 0.5f;
 
     private float _horizontalStretch;
 
-    private float _XLimit = 1400;
-    private float _YLimit = 850;
+    private readonly float _XLimit = 1400;
+    private readonly float _YLimit = 850;
 
-    private float _XLimit2 = 15000;
-    private float _YLimit2 = 15000;
+    private readonly float _XLimit2 = 15000;
+    private readonly float _YLimit2 = 15000;
 
-    [SerializeField]
-    private float _originalYPos = 0f;
-    [SerializeField]
-    private float _jumpDestinationPos = 30f;
-
-    private float _timer;
-    [SerializeField]
-    private float _jumpTime = 20f;
+    //[SerializeField]
+    private readonly float _jumpDestinationPos = 13f;
 
     private Vector3 _catOriginalPos;
     private Vector3 _catJumpPos;
 
     private float timeElapsed;
-    private float lerpDuration = 1f;
+    private readonly float lerpDuration = 1f;
 
-    private bool _spacePressed = false;
     private bool _isCatJumping = false;
     public float hangTime = 0.2f;
-
-
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _wholeCatYPos = CatWhole.transform.position.y; // cat pos set as Cat's position
-
         _verticalStretch = CatBody.transform.localScale.y;
-        _headPos = CatHead.transform.position.y;
 
         ParentForHead.transform.position = PosForHead.transform.position;
         CatHead.transform.SetParent(ParentForHead.transform);
 
         _horizontalStretch = CatBody.transform.localScale.x;
+        _score = 0;
     }
 
     // Update is called once per frame
@@ -119,7 +106,7 @@ public class CatControl : MonoBehaviour
             JumpingCat();
         }
 
-
+        ScoreTMP.text = _score.ToString();
     }
 
     private void JumpingCat()
@@ -176,7 +163,7 @@ public class CatControl : MonoBehaviour
         //vertical stretch
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
-            _verticalStretch += _stretchRate;
+            _verticalStretch += _stretchRate * 8;
             if (CatBody.transform.localScale.y >= _YLimit2)
             {
                 _verticalStretch = _YLimit2;
@@ -185,7 +172,26 @@ public class CatControl : MonoBehaviour
 
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
-            _verticalStretch -= _stretchRate;
+            _verticalStretch -= _stretchRate*8;
+
+            if (CatBody.transform.localScale.y <= _YLimit)
+            {
+                _verticalStretch = _YLimit;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            _verticalStretch += _stretchRate/2;
+            if (CatBody.transform.localScale.y >= _YLimit2)
+            {
+                _verticalStretch = _YLimit2;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            _verticalStretch -= _stretchRate/2;
 
             if (CatBody.transform.localScale.y <= _YLimit)
             {
@@ -194,9 +200,9 @@ public class CatControl : MonoBehaviour
         }
 
         //horizontal stretch
-        if(Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
-            _horizontalStretch += _stretchRate;
+            _horizontalStretch += _stretchRate/2;
             if (CatBody.transform.localScale.x >= _XLimit2)
             {
                 _horizontalStretch = _XLimit2;
@@ -205,7 +211,7 @@ public class CatControl : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            _horizontalStretch -= _stretchRate;
+            _horizontalStretch -= _stretchRate/2;
 
             if (CatBody.transform.localScale.x <= _XLimit)
             {
@@ -215,6 +221,21 @@ public class CatControl : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.tag == "Fish")
+        {
+            _score++;
+            GameObject.Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "Obstacle")
+        {
+            Debug.Log("game over!");
+            _score = 0;
+        }
+    }
 }
 
         
