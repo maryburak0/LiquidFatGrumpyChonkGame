@@ -1002,6 +1002,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3382255372420859898, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
+      propertyPath: Chonk
+      value: 
+      objectReference: {fileID: 1423249480}
+    - target: {fileID: 3382255372420859898, guid: 6a361b2207f9eef44aaaaa08390d63ef, type: 3}
       propertyPath: HousePrefab1
       value: 
       objectReference: {fileID: 224832657043827021, guid: 80cced97cb1aeb74dac6d2f71786c08d, type: 3}

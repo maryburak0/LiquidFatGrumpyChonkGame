@@ -15,10 +15,16 @@ public class ObstacleGenerator : MonoBehaviour
     public GameObject HousePrefab11;
     public GameObject HousePrefab12;
 
+    public GameObject Chonk;
+    public CatControl CatControl;
+
     private float time;
+    private readonly int interval = 3;
 
     void Start()
     {
+        CatControl = Chonk.GetComponent<CatControl>();
+
         time = 0;
         GenerateObstacle();
     }
@@ -27,7 +33,7 @@ public class ObstacleGenerator : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time >= 3)
+        if (time >= interval)
         {
             time = 0;
             GenerateObstacle();
@@ -37,65 +43,58 @@ public class ObstacleGenerator : MonoBehaviour
     void GenerateObstacle()
     {
         int random = Random.Range(1, 12);
+        GameObject house;
 
         if (random == 1)
         {
-            Instantiate(HousePrefab1, gameObject.transform);
+            house = Instantiate(HousePrefab1, gameObject.transform);
+            
+        }
+        else if (random == 2)
+        {
+            house = Instantiate(HousePrefab2, gameObject.transform);
+        }
+        else if (random == 3)
+        {
+            house = Instantiate(HousePrefab3, gameObject.transform);
+        }
+        else if (random == 4)
+        {
+            house = Instantiate(HousePrefab4, gameObject.transform);
+        }
+        else if (random == 5)
+        {
+            house = Instantiate(HousePrefab5, gameObject.transform);
+        }
+        else if (random == 6)
+        {
+            house = Instantiate(HousePrefab6, gameObject.transform);
+        }
+        else if (random == 7)
+        {
+            house = Instantiate(HousePrefab7, gameObject.transform);
+        }
+        else if (random == 8)
+        {
+            house = Instantiate(HousePrefab8, gameObject.transform);
+        }
+        else if (random == 9)
+        {
+            house = Instantiate(HousePrefab9, gameObject.transform);
+        }
+        else if (random == 10)
+        {
+            house = Instantiate(HousePrefab10, gameObject.transform);
+        }
+        else if (random == 11)
+        {
+            house = Instantiate(HousePrefab11, gameObject.transform);
+        }
+        else
+        {
+            house = Instantiate(HousePrefab12, gameObject.transform);
         }
 
-        if (random == 2)
-        {
-            Instantiate(HousePrefab2, gameObject.transform);
-        }
-
-        if (random == 3)
-        {
-            Instantiate(HousePrefab3, gameObject.transform);
-        }
-
-        if (random == 4)
-        {
-            Instantiate(HousePrefab4, gameObject.transform);
-        }
-
-        if (random == 5)
-        {
-            Instantiate(HousePrefab5, gameObject.transform);
-        }
-
-        if (random == 6)
-        {
-            Instantiate(HousePrefab6, gameObject.transform);
-        }
-
-        if (random == 7)
-        {
-            Instantiate(HousePrefab7, gameObject.transform);
-        }
-
-        if (random == 8)
-        {
-            Instantiate(HousePrefab8, gameObject.transform);
-        }
-
-        if (random == 9)
-        {
-            Instantiate(HousePrefab9, gameObject.transform);
-        }
-
-        if (random == 10)
-        {
-            Instantiate(HousePrefab10, gameObject.transform);
-        }
-
-        if (random == 11)
-        {
-            Instantiate(HousePrefab11, gameObject.transform);
-        }
-
-        if (random == 12)
-        {
-            Instantiate(HousePrefab12, gameObject.transform);
-        }
+        house.gameObject.GetComponent<ObstacleMove>().Speed = CatControl.CurrentSpeed;
     }
 }
