@@ -123,6 +123,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: e227035ba573f9548a85080dd34db508, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e227035ba573f9548a85080dd34db508, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 3566ec4163bb0ba45b90ce819249f2ac, type: 2}
@@ -130,6 +134,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 6b6ce515356e8fd458d1248b050b4a73, type: 2}
+    - target: {fileID: -7511558181221131132, guid: e227035ba573f9548a85080dd34db508, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ddbb0419f3e45154186398ed2f910926, type: 2}
     - target: {fileID: 919132149155446097, guid: e227035ba573f9548a85080dd34db508, type: 3}
       propertyPath: m_Name
       value: House_3
